@@ -30,7 +30,7 @@ This will install `numpy` (the only required external library to run the neural 
 
 ## Further improvements
 
-There are several functionalities that may be implemented:
+There are several functionalities that may be implemented to make this software more useful:
 - Other types of layers: LSTM, CNN, embeddings,...
 - Batches
 - More optimizers other than Stochastic Gradient Descent
