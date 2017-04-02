@@ -1,2 +1,4 @@
 .idea
+.pyc
+.DS_STORE
 __pycache__
