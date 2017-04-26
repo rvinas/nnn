@@ -1,9 +1,10 @@
-# Neural Network from scratch in Python
+# Numpy Neural Network
+Neural Network from scratch in Python using exclusively Numpy.
 ## Overview
 
 This project consists of a neural network implementation from scratch. Modules are organized in a way that intends to provide both an understandable implementation of neural networks and a user-friendly API.
 The project is structured as follows:
-- `python_nn`
+- `nnn`
     - `core/`: Network main functionalities. 
         - `neural_network.py`: Implementation of the neural network, including functionalities such as building a custom network and training it with backpropagation + stochastic gradient descent.
         - `layers.py`: Defines layers that can take part in the neural network by describing its behavior at the forward and backward steps.
@@ -11,9 +12,11 @@ The project is structured as follows:
         - `activations.py`: Activation functions that may be used to add nonlinearities to the model.
         - `objectives.py`: Functions to be optimized by adjusting network's parameters.
     - `utils/`: Other utilities.
-        - `plot_boundaries_2d.py`: Function to plot the classification boundaries of a 2d classifier.
-    - `a_greater_than_b.py`: Example demonstrating that a linearly separable dataset can be classified using a neural network without any hidden layer.
-    - `a_equal_to_b.py`: Example demonstrating that a non linearly separable dataset requires at least a hidden layer in order to classify samples correctly.
+        - `plots.py`: Module with plotting tools. It contains a function to plot the classification boundaries of a 2d classifier, among others.
+        - `loss_grid.py`: Computation of the loss grid for a given neural network and objective function
+    - `examples`: Simple instructive examples. See examples/README.md
+        - `a_greater_than_b.py`: Example demonstrating that a linearly separable dataset can be classified using a neural network without any hidden layer.
+        - `a_aprox_b.py`: Example demonstrating that a non linearly separable dataset requires at least a hidden layer in order to classify samples correctly.
 
 ## Prerequisites
 

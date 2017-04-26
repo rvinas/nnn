@@ -1,2 +1,2 @@
 from __future__ import absolute_import
-from . import plot_boundaries_2d
+from . import plots

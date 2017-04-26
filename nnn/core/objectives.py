@@ -1,6 +1,6 @@
 """
-activations.py: Activation functions. They require its derivatives
-                with respect to their input.
+objectives.py: Objective (or loss) functions. They require its derivatives
+               with respect to the network prediction.
 Copyright 2017 Ramon Vinas
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,38 +16,36 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 import math
-import numpy as np
 
 
-class Activation:
+class Objective:
     def __init__(self):
         raise NotImplementedError
 
-    def activation(self, x):
+    def get_loss(self, y_true, y_pred):
         raise NotImplementedError
 
-    def derivative(self, x):
+    def derivative(self, y_true, y_pred):
         raise NotImplementedError
 
 
-class Sigmoid(Activation):
-    def __init__(self):
-        pass
-
-    def activation(self, x):
-        return 1 / (1 + math.e ** -x)
-
-    def derivative(self, x):
-        s = self.activation(x)
-        return s * (1 - s)
-
-
-class Tanh(Activation):
+class CrossEntropy(Objective):
     def __init__(self):
         pass
 
-    def activation(self, x):
-        return np.array([math.tanh(i) for i in x])
+    def get_loss(self, y_true, y_pred, eps=1e-6):
+        return -y_true * math.log(y_pred + eps) - (1 - y_true) * math.log(1 - y_pred + eps)
 
-    def derivative(self, x):
-        return np.array([math.cosh(i) ** -2 for i in x])
+    def derivative(self, y_true, y_pred):
+        return (y_pred - y_true) / (y_pred * (1 - y_pred))
+
+
+class SquaredError(Objective):
+    def __init__(self):
+        pass
+
+    def get_loss(self, y_true, y_pred):
+        return (y_true - y_pred) ** 2
+
+    def derivative(self, y_true, y_pred):
+        return 2 * (y_true - y_pred)

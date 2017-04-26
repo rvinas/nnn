@@ -14,10 +14,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
-
-from core.activations import *
-from core.layers import *
-from core.initializers import *
+from nnn.core.activations import *
+from nnn.core.layers import *
+from nnn.core.initializers import *
 
 
 class NeuralNetwork:
@@ -67,7 +66,7 @@ class NeuralNetwork:
 
     def train(self, x, y, objective, epochs=5, lr=0.01):
         """
-        Trains the network.
+        Trains the network using batches of size 1. TODO: batch support
         :param x: Input data. Shape: (?, self.input_dim,)
         :param y: Input labels. Shape: (?, self.output_dim,)
         :param objective: Objective function. See core/objectives

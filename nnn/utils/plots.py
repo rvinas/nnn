@@ -1,5 +1,5 @@
 """
-plot_boundaries_2d.py: Function to plot the classification boundaries of a 2d classifier.
+plots.py: Module with plotting tools. It contains a function to plot the classification boundaries of a 2d classifier, among others.
 Copyright 2017 Ramon Vinas
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,9 +17,11 @@ limitations under the License.
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+from mpl_toolkits.mplot3d import Axes3D
 
 
 def plot_boundaries_2d(nn, resolution=100, init=0.0, end=2.0, title=None, save_path=None):
+    print('Plotting boundaries ...')
     a = np.linspace(init, end, resolution)
     b = np.linspace(init, end, resolution)
 
@@ -33,7 +35,40 @@ def plot_boundaries_2d(nn, resolution=100, init=0.0, end=2.0, title=None, save_p
     plt.colorbar(img, cmap=cmap)
     if title is not None:
         plt.title(title)
-    plt.show()
-
     if save_path is not None:
         plt.savefig(save_path)
+    plt.show()
+
+
+def plot_data(x_train, y_train, x_test, y_test, init=0.0, end=2.0, title=None, save_path=None):
+    print('Plotting data ...')
+    colors = ['r' if y == 1 else 'b' for y in y_train]
+    plt.scatter(x_train[:, 0], x_train[:, 1], marker='o', c=colors)
+    colors = ['r' if y == 1 else 'b' for y in y_test]
+    plt.scatter(x_test[:, 0], x_test[:, 1], marker='o', c=colors)
+    plt.scatter(x_test[:, 0], x_test[:, 1], marker='*', s=20, c='w')
+    plt.xlim(init, end)
+    plt.ylim(init, end)
+
+    if title is not None:
+        plt.title(title)
+    if save_path is not None:
+        plt.savefig(save_path)
+    plt.show()
+
+
+def plot_loss_function_3d(loss_grid, w1, w2, title=None, save_path=None):
+    print('Plotting loss function ...')
+
+    fig = plt.figure()
+    ax = Axes3D(fig)
+    x, y = np.meshgrid(w1, w2)
+    ax.plot_surface(x, y, loss_grid, cmap="CMRmap_r", lw=3, linestyles="solid")
+
+    if title is not None:
+        plt.title(title)
+    if save_path is not None:
+        plt.savefig(save_path)
+    plt.xlabel('w1')
+    plt.ylabel('w2')
+    plt.show()
