@@ -8,7 +8,7 @@ The random generated data used in this example is shown next:
 
 ![alt text](a_greater_than_b_data.png "Train and test data for A > B")
 
-*Figure 1: Train and test data for A > B*
+*<p style="text-align: center;">Figure 1: Train and test data for A > B</p>*
 
 Being able to generalize to new samples is commonly a desirable property of classifiers. A requirement for this property is that the training set must be representative of the whole population. In the plot above, we've selected some samples (star points) to be classified without training on them (test data). Training data (rest of samples) are obviously representative of these test samples. 
 
@@ -18,7 +18,7 @@ Classification boundaries obtained by training a neural network without hidden l
 
 ![alt text](a_greater_than_b_boundaries.png "Classifier boundaries for A > B")
 
-*Figure 2: Classifier boundaries for A > B*
+*<p style="text-align: center;">Figure 2: Classifier boundaries for A > B </p>*
 
 ## A aprox B (a_aprox_b.py)
 With this example we intend to show that a neural network requires hidden layers to classify non-linear separable data. We also aim to explain the intuition behind the inner representations of data that neural networks try to learn.
@@ -29,7 +29,7 @@ The random generated data used in this example is shown next (star points are te
 
 ![alt text](a_aprox_b_data.png "Train and test data for A aprox B")
 
-*Figure 3: Train and test data for A aprox B*
+*<p style="text-align: center;">Figure 3: Train and test data for A aprox B</p>*
 
 What can we say about linear separability for this dataset?
 
@@ -37,7 +37,7 @@ This dataset **is not** linearly separable, because we can't separate it using a
 
 ![alt text](a_aprox_b_nohidden_boundaries.png "Classifier boundaries for A aprox B using a neural network without hidden layers")
 
-*Figure 4: Classifier boundaries for A aprox B using a neural network without hidden layers*
+*<p style="text-align: center;">Figure 4: Classifier boundaries for A aprox B using a neural network without hidden layers</p>*
 
 The neural network can't draw a straight line separating one class for another correctly, although it still tries to find the linear model with the lowest loss.
 
@@ -51,4 +51,4 @@ You could fold the transparent sheet in such a way that coordinates (0, 1) and (
 
 ![alt text](a_aprox_b_boundaries.png "Classifier boundaries for A > B")
 
-*Figure 5: Classifier boundaries for A aprox B using a neural network with a hidden layer. This is what we get after unfolding out transparent sheet.*
+*<p style="text-align: center;">Figure 5: Classifier boundaries for A aprox B using a neural network with a hidden layer. This is what we get after unfolding out transparent sheet.</p>*
