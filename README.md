@@ -1,5 +1,5 @@
 # Numpy Neural Network
-Neural Network from scratch in Python using exclusively Numpy.
+Neural Network from scratch in Python exclusively using Numpy.
 ## Overview
 
 This project consists of a neural network implementation from scratch. Modules are organized in a way that intends to provide both an understandable implementation of neural networks and a user-friendly API.
@@ -14,7 +14,7 @@ The project is structured as follows:
     - `utils/`: Other utilities.
         - `plots.py`: Module with plotting tools. It contains a function to plot the classification boundaries of a 2d classifier, among others.
         - `loss_grid.py`: Computation of the loss grid for a given neural network and objective function
-    - `examples`: Simple instructive examples. See examples/README.md
+    - `examples`: Simple instructive examples. See [examples/README.md](examples/README.md)
         - `a_greater_than_b.py`: Example demonstrating that a linearly separable dataset can be classified using a neural network without any hidden layer.
         - `a_aprox_b.py`: Example demonstrating that a non linearly separable dataset requires at least a hidden layer in order to classify samples correctly.
 
