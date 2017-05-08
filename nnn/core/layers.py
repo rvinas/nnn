@@ -58,7 +58,9 @@ class Dense(Layer):
         """
         assert len(der_loss_wrt_act) == self.output_dim
         der_h_wrt_w = np.repeat(np.expand_dims(self.input, axis=0), self.output_dim, axis=0)
-        der_loss_wrt_w = np.expand_dims(der_loss_wrt_act * self.der_act_wrt_h, axis=-1) * der_h_wrt_w
-        backward = np.dot(der_loss_wrt_act, self.weights[:, 1:])  # computes the loss to be transmitted to the previous layer (note that bias term is being excluded)
+        aux = der_loss_wrt_act * self.der_act_wrt_h
+        der_loss_wrt_w = np.expand_dims(aux, axis=-1) * der_h_wrt_w
+        backward = np.dot(aux, self.weights[:, 1:])  # computes the loss to be transmitted to the previous layer (note that bias term is being excluded)
         self.weights -= lr * der_loss_wrt_w
         return np.squeeze(backward)
+

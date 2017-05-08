@@ -21,7 +21,7 @@ from nnn.core.neural_network import NeuralNetwork
 from nnn.core.objectives import CrossEntropy
 from nnn.utils.plots import plot_boundaries_2d, plot_data
 import numpy as np
-np.random.seed(15) # Note that the neural network is highly sensitive to initial conditions.
+np.random.seed(27) # Note that the neural network is highly sensitive to initial conditions.
 
 n_samples_train = 100
 n_samples_test = 25
@@ -36,7 +36,7 @@ nn = NeuralNetwork(input_dim=2, output_dim=1)
 # Try commenting the next line: the neural network won't be able to classify the samples, because data isn't linearly separable. Thus, we need a hidden layer.
 nn.add_dense(output_dim=2, activation=Sigmoid(), initializer=GaussianInitializer(gaussian_mean=0.0, gaussian_std=1))
 nn.add_dense(output_dim=1, activation=Sigmoid(), initializer=GaussianInitializer(gaussian_mean=0.0, gaussian_std=1))
-nn.train(x=x_train, y=y_train, objective=CrossEntropy(), epochs=25, lr=0.3)
+nn.train(x=x_train, y=y_train, objective=CrossEntropy(), epochs=100, lr=0.3)
 
 print('Train data')
 for i in range(n_samples_train):

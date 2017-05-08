@@ -23,7 +23,7 @@ from nnn.utils.plots import plot_boundaries_2d, plot_data, plot_loss_function_3d
 from nnn.utils.loss_grid import loss_grid_nn
 import numpy as np
 
-np.random.seed(15)
+np.random.seed(27)
 
 n_samples_train = 100
 n_samples_test = 25
@@ -36,7 +36,7 @@ plot_data(x_train=x_train, y_train=y_train, x_test=x_test, y_test=y_test, init=0
 
 nn = NeuralNetwork(input_dim=2, output_dim=1)
 nn.add_dense(output_dim=1, activation=Sigmoid(), initializer=GaussianInitializer(gaussian_mean=0.0, gaussian_std=0.3))
-nn.train(x=x_train, y=y_train, objective=CrossEntropy(), epochs=25, lr=0.3)
+nn.train(x=x_train, y=y_train, objective=CrossEntropy(), epochs=100, lr=0.3)
 
 print('Train data')
 for i in range(n_samples_train):

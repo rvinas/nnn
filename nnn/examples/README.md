@@ -51,4 +51,4 @@ You could fold the transparent sheet in such a way that coordinates (0, 1) and (
 
 ![alt text](a_aprox_b_boundaries.png "Classifier boundaries for A > B")
 
-*<p style="text-align: center;">Figure 5: Classifier boundaries for A aprox B using a neural network with a hidden layer. This is what we get after unfolding out transparent sheet.</p>*
+*<p style="text-align: center;">Figure 5: Classifier boundaries for A aprox B using a neural network with a hidden layer. This is what we get after unfolding the transparent sheet.</p>*
