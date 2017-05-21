@@ -27,7 +27,7 @@ Note: Not tested with other python versions.
 
 ## Installation
 Once you have met the prerequisites, a single step is required to install this software:
-1. Run `sudo pip3 install -r requirements.txt`
+1. Run `python setup.py install`
 
 This will install `numpy` (the only required external library to run the neural network) and `matplotlib` (only needed to plot classifier boundaries when running an example).
 
