@@ -33,12 +33,12 @@ def plot_boundaries_2d(nn, resolution=100, init=0.0, end=1.0, xlabel = 'w1', yla
     cmap = mpl.colors.LinearSegmentedColormap.from_list('my_colormap', ['orange', 'black', 'white'], 256)
     img = plt.imshow(pred_grid, origin='lower', interpolation='quadric', extent=[init, end, init, end], cmap=cmap)
     plt.colorbar(img, cmap=cmap)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
     if title is not None:
         plt.title(title)
     if save_path is not None:
         plt.savefig(save_path)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
     plt.show()
 
 
@@ -52,12 +52,12 @@ def plot_data(x_train, y_train, x_test, y_test, xlabel = 'A', ylabel = 'B', init
     plt.xlim(init, end)
     plt.ylim(init, end)
 
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
     if title is not None:
         plt.title(title)
     if save_path is not None:
         plt.savefig(save_path)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
     plt.show()
 
 
@@ -69,10 +69,10 @@ def plot_loss_function_3d(loss_grid, w1, w2, xlabel = 'w1', ylabel = 'w2', title
     x, y = np.meshgrid(w1, w2)
     ax.plot_surface(x, y, loss_grid, cmap="CMRmap_r", lw=3, linestyles="solid")
 
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
     if title is not None:
         plt.title(title)
     if save_path is not None:
         plt.savefig(save_path)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
     plt.show()
