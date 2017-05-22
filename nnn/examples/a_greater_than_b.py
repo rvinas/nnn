@@ -32,11 +32,27 @@ x_test = np.random.rand(n_samples_test, 2)
 y_train = np.array([int(x[0] > x[1]) for x in x_train])
 y_test = np.array([int(x[0] > x[1]) for x in x_test])
 
-plot_data(x_train=x_train, y_train=y_train, x_test=x_test, y_test=y_test, init=0, end=1, title='Data plot. Star points are test samples', save_path='a_greater_than_b_data.png')
+plot_data(x_train=x_train,
+          y_train=y_train,
+          x_test=x_test,
+          y_test=y_test,
+          init=0,
+          end=1,
+          xlabel='A',
+          ylabel='B',
+          title='Data plot. Star points are test samples',
+          save_path='a_greater_than_b_data.png')
 
-nn = NeuralNetwork(input_dim=2, output_dim=1)
-nn.add_dense(output_dim=1, activation=Sigmoid(), initializer=GaussianInitializer(gaussian_mean=0.0, gaussian_std=0.3))
-nn.train(x=x_train, y=y_train, objective=CrossEntropy(), epochs=100, lr=0.3)
+nn = NeuralNetwork(input_dim=2,
+                   output_dim=1)
+nn.add_dense(output_dim=1,
+             activation=Sigmoid(),
+             initializer=GaussianInitializer(gaussian_mean=0.0, gaussian_std=0.3))
+nn.train(x=x_train,
+         y=y_train,
+         objective=CrossEntropy(),
+         epochs=100,
+         lr=0.3)
 
 print('Train data')
 for i in range(n_samples_train):
@@ -48,8 +64,28 @@ for i in range(n_samples_test):
     f = nn.predict(x_test[i])
     print('Pred: {0:2f}. Label: {1:2d}'.format(f[0], y_test[i]))
 
-plot_boundaries_2d(nn, resolution=100, init=0.0, end=2.0, title='Probability that A>B', save_path='a_greater_than_b_boundaries.png')
+plot_boundaries_2d(nn,
+                   resolution=100,
+                   init=0.0,
+                   end=1.0,
+                   xlabel='A',
+                   ylabel='B',
+                   title='Probability that A>B',
+                   save_path='a_greater_than_b_boundaries.png')
 
-loss_g, w1, w2 = loss_grid_nn(nn=nn, objective=CrossEntropy(), x_train=x_train, y_train=y_train, resolution=20,
-                           w1_init=-5, w1_end=5, w2_init=-5, w2_end=5)
-plot_loss_function_3d(loss_grid=loss_g, w1=w1, w2=w2, title='Loss function', save_path=None)
+loss_g, w1, w2 = loss_grid_nn(nn=nn,
+                              objective=CrossEntropy(),
+                              x_train=x_train,
+                              y_train=y_train,
+                              resolution=20,
+                              w1_init=-5,
+                              w1_end=5,
+                              w2_init=-5,
+                              w2_end=5)
+plot_loss_function_3d(loss_grid=loss_g,
+                      w1=w1,
+                      w2=w2,
+                      xlabel = 'w1',
+                      ylabel = 'w2',
+                      title='Loss function',
+                      save_path=None)

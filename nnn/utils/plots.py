@@ -20,7 +20,7 @@ import matplotlib as mpl
 from mpl_toolkits.mplot3d import Axes3D
 
 
-def plot_boundaries_2d(nn, resolution=100, init=0.0, end=2.0, title=None, save_path=None):
+def plot_boundaries_2d(nn, resolution=100, init=0.0, end=1.0, xlabel = 'w1', ylabel = 'w2', title=None, save_path=None):
     print('Plotting boundaries ...')
     a = np.linspace(init, end, resolution)
     b = np.linspace(init, end, resolution)
@@ -37,10 +37,12 @@ def plot_boundaries_2d(nn, resolution=100, init=0.0, end=2.0, title=None, save_p
         plt.title(title)
     if save_path is not None:
         plt.savefig(save_path)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
     plt.show()
 
 
-def plot_data(x_train, y_train, x_test, y_test, init=0.0, end=2.0, title=None, save_path=None):
+def plot_data(x_train, y_train, x_test, y_test, xlabel = 'A', ylabel = 'B', init=0.0, end=1.0, title=None, save_path=None):
     print('Plotting data ...')
     colors = ['r' if y == 1 else 'b' for y in y_train]
     plt.scatter(x_train[:, 0], x_train[:, 1], marker='o', c=colors)
@@ -54,10 +56,12 @@ def plot_data(x_train, y_train, x_test, y_test, init=0.0, end=2.0, title=None, s
         plt.title(title)
     if save_path is not None:
         plt.savefig(save_path)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
     plt.show()
 
 
-def plot_loss_function_3d(loss_grid, w1, w2, title=None, save_path=None):
+def plot_loss_function_3d(loss_grid, w1, w2, xlabel = 'w1', ylabel = 'w2', title=None, save_path=None):
     print('Plotting loss function ...')
 
     fig = plt.figure()
@@ -69,6 +73,6 @@ def plot_loss_function_3d(loss_grid, w1, w2, title=None, save_path=None):
         plt.title(title)
     if save_path is not None:
         plt.savefig(save_path)
-    plt.xlabel('w1')
-    plt.ylabel('w2')
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
     plt.show()
