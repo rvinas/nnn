@@ -1,6 +1,6 @@
 from setuptools import setup
 from setuptools import find_packages
-
+import pip
 
 setup(name='nnn',
       version='0.0.1',
@@ -9,5 +9,7 @@ setup(name='nnn',
       author_email='rvinast@gmail.com',
       url='https://github.com/rvinas/nnn',
       license='Apache',
-      install_requires=['numpy', 'matplotlib'],
       packages=find_packages())
+
+pip.main(['install', 'numpy'])
+pip.main(['install', 'matplotlib'])
